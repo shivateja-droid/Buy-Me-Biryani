@@ -146,7 +146,7 @@ const PaymentPage = ({ username }) => {
                     {Payments.length === 0 && <p>No supporters yet</p>}
                     {Payments.map((p, i) => (
                         <div key={i} className='flex items-center mb-2 gap-2'><img width={50} src="profile.svg" alt="" />
-                            <p>{p.name} donated <span className='font-semibold'> ₹{p.amount}</span> with Message <span className='font-semibold'> "{p.message}"</span></p>
+                            <p>{p.name} donated <span className='font-semibold'> ₹{p.amount}</span> with Message <span className='font-semibold'>&quot;{p.message}&quot;</span></p>
                         </div>
                     ))}
                 </div>
