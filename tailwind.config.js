@@ -8,6 +8,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./Components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: isDev
     ? [
@@ -15,20 +16,41 @@ module.exports = {
     ]
     : [
       // ✅ production-only safelist (add more if needed)
-      { pattern: /bg-\[.*\]/ }, // arbitrary background utilities
-      "bg-slate-800",
-      "bg-slate-900",
-      "bg-gradient-to-r",
-      "bg-gradient-to-br",
-      "from-red-400",
-      "to-red-600",
-      "text-white",
-      "text-yellow-400",
-      "shadow-lg",
-      "rounded-lg",
-      "object-cover",
-      "absolute",
-      "inset-0",
+      { pattern: /.*/ }, // arbitrary background utilities
+      // sizes for dropdown avatar & svg
+        "w-2.5",
+        "h-2.5",
+        "w-8",
+        "h-8",
+        "ms-3",
+        "me-3",
+
+        // paddings that collapsed in prod
+        "px-2",
+        "px-3",
+        "px-4",
+        "py-2",
+        "py-3",
+        "p-4",
+
+        // navbar/footer backgrounds & shadows
+        "bg-slate-800",
+        "bg-slate-900",
+        "shadow",
+        "shadow-md",
+        "shadow-lg",
+
+        // text colors you use in navbar/footer
+        "text-white",
+        "dark:text-white",
+        "text-gray-900",
+
+        // rounding for avatars/buttons
+        "rounded-full",
+        "rounded-md",
+        "absolute",
+        "inset-0",
+        "fixed"
     ],
   theme: {
     extend: {

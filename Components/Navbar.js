@@ -3,6 +3,7 @@ import React from 'react'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image';
 
 const Navbar = () => {
     const { data: session } = useSession()
@@ -11,7 +12,7 @@ const Navbar = () => {
     return (
         <div className='flex justify-between items-center gap-2  p-4  bg-slate-800'>
             <Link href="/"><div className='flex items-center gap-2'>
-                <img className='rounded-full' src="buyme.gif" width={50} alt="" />
+                <Image className='rounded-full' src="/buyme.gif" width={50} height={50} alt="" />
                 <p className='text-center font-bold max-sm:text-lg text-xl md:text-2xl'>Buy Me Biryani</p>
             </div></Link>
             <div className='flex gap-2 items-center'>
@@ -22,7 +23,7 @@ const Navbar = () => {
                         }, 500);
                     }} id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" className="flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
                         <span className="sr-only">Open user menu</span>
-                        <img className="w-8 h-8 me-2 rounded-full" src="dp.jpg" alt="user photo" />
+                        <Image className="w-8 h-8 me-2 rounded-full" src="/dp.jpg" width={32} height={32} alt="user photo" />
                         <p className="text-xl max-sm:text-sm md:text-2xl font-extrabold text-green-400 tracking-widest uppercase  drop-shadow-[2px_2px_0px_black]">{session.user.name}</p>
                         <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -39,7 +40,7 @@ const Navbar = () => {
                                 <Link href={"/dashboard"} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
                             </li>
                             <li>
-                                <Link href={`${session.user.name}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your page</Link>
+                                <Link href={`/${encodeURIComponent(session.user.name)}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Your page</Link>
                             </li>
                             <li>
                                 <Link href="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</Link>
